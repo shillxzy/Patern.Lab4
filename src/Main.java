@@ -1,4 +1,4 @@
-package mediator;
+package observer;
 
 class Main
 {
@@ -10,20 +10,21 @@ class Main
 
     public static void main (String[] args)
     {
-        ConcreteDelivery mediator = new ConcreteDelivery();
+        Customer customer = new Customer("Клієнт");
+        Courier courier = new Courier("Кур'єр");
 
-        StandardDelivery standard = new StandardDelivery(mediator);
-        ExpressDelivery express = new ExpressDelivery(mediator);
+        Delivery delivery = new Delivery();
+        delivery.addObserver(customer);
+        delivery.addObserver(courier);
 
-        mediator.setStandardDelivery(standard);
-        mediator.setExpressDelivery(express);
+        System.out.println("--- Оновлення статусу доставки ---");
+        delivery.setStatus("Замовлення прийняте");
 
-        standard.send("Пакунок готовий до відправки.");
+        System.out.println("\n--- Оновлення статусу доставки ---");
+        delivery.setStatus("Відправлено");
 
-        System.out.println();
-
-        express.send("Пакунок буде відправлено терміново.");
-
+        System.out.println("\n--- Оновлення статусу доставки ---");
+        delivery.setStatus("Доставлено");
     }
 
 }

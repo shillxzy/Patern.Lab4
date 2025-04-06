@@ -24,7 +24,6 @@ class Standard implements Delivery
     }
 }
 
-// Конкретний елемент 2 - Експрес доставка
 class Express implements Delivery
 {
     public void accept(Visitor visitor)
@@ -45,8 +44,6 @@ class Cost implements Visitor
     {
         System.out.println("Вартість стандартної доставки: 100 грн.");
     }
-
-
     public void visit(Express expressDelivery)
     {
         System.out.println("Вартість експрес-доставки: 200 грн.");
@@ -59,7 +56,6 @@ class Timer implements Visitor
     {
         System.out.println("Час стандартної доставки: 3 дні.");
     }
-
     public void visit(Express expressDelivery)
     {
         System.out.println("Час експрес-доставки: 1 день.");

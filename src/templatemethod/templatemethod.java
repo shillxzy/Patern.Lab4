@@ -1,6 +1,5 @@
 package templatemethod;
 
-
 abstract class Delivery
 {
     public void deliver()
